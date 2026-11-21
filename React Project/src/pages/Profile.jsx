@@ -15,11 +15,11 @@ export default function Profile() {
       }
     }
     return {
-      name: 'Prince Amreliya',
-      handle: 'princeamareliya1',
-      bio: 'B.Tech CSE Student | Cinema Enthusiast & Full Stack Developer',
+      name: 'Alex Rivera',
+      handle: 'cinematic_voyager',
+      bio: 'Film Critic & Cinephile | Exploring Sci-Fi, Indie & Classic Cinema 🎬',
       joinDate: 'Aug 11, 2026',
-      avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80'
+      avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
     };
   });
 
