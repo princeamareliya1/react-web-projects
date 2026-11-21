@@ -133,19 +133,34 @@ export default function Search() {
 
         {loading && (
           <div className="text-center py-5">
-
-            <h4 className="text-white">
+            <div
+              className="spinner-border mb-3"
+              role="status"
+              style={{
+                width: '3rem',
+                height: '3rem',
+                color: 'var(--secondary-neon)',
+                borderWidth: '0.25rem'
+              }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <h5 className="text-white fw-semibold">
               Searching movies...
-            </h4>
-
+            </h5>
+            <p className="small mb-0" style={{ color: 'var(--text-muted)' }}>
+              Fetching latest results from TMDB
+            </p>
           </div>
         )}
 
         {!loading && error && (
           <div className="text-center py-5 text-danger">
-
-            <h4>{error}</h4>
-
+            <div className="mb-3" style={{ fontSize: '2.5rem' }}>⚠️</div>
+            <h4 className="fw-bold">{error}</h4>
+            <p className="small text-muted">
+              Check your connection or API key and try again.
+            </p>
           </div>
         )}
 
@@ -155,15 +170,13 @@ export default function Search() {
           movies.length === 0 && (
 
             <div className="text-center py-5">
-
-              <h4 className="text-white">
-                No movies found
+              <div className="mb-3" style={{ fontSize: '3rem', opacity: 0.8 }}>🎬</div>
+              <h4 className="text-white fw-bold">
+                No movies found for "{query}"
               </h4>
-
-              <p style={{ color: 'var(--text-muted)' }}>
-                Try searching with another movie title.
+              <p style={{ color: 'var(--text-muted)', maxWidth: '420px', margin: '0 auto' }}>
+                We couldn't find any titles matching your search. Try checking your spelling or search by actor or popular keyword.
               </p>
-
             </div>
           )}
 
