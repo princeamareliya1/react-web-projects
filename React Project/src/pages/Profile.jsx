@@ -15,11 +15,11 @@ export default function Profile() {
       }
     }
     return {
-      name: 'Alex Rivera',
-      handle: 'cinematic_voyager',
-      bio: 'Film Critic & Cinephile | Exploring Sci-Fi, Indie & Classic Cinema 🎬',
+      name: 'Marcus Vance',
+      handle: 'cyber_cinephile',
+      bio: 'Film Enthusiast & Screenplay Analyst | Sci-Fi, Thrillers & Modern Cinema 🎬',
       joinDate: 'Aug 11, 2026',
-      avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
+      avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
     };
   });
 
