@@ -33,7 +33,10 @@ export default function Search() {
     try {
       const data = await searchMovies(query.trim(), searchPage);
 
-      setMovies(data.results || []);
+      // TMDB returns 20 movies per page. On large screens (row-cols-xl-6), 
+      // 20 leaves 2 leftover movies on row 4. Slicing to 18 makes exactly 3 full rows of 6!
+      const results = (data.results || []).slice(0, 18);
+      setMovies(results);
       setPage(data.page || searchPage);
       setTotalPages(data.total_pages || 0);
       setTotalResults(data.total_results || 0);
