@@ -13,6 +13,8 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const [searchedQuery, setSearchedQuery] = useState('');
+
   const handleSearch = async (e, searchPage = 1) => {
     e?.preventDefault();
 
@@ -20,14 +22,16 @@ export default function Search() {
       setMovies([]);
       setTotalPages(0);
       setTotalResults(0);
+      setSearchedQuery('');
       return;
     }
 
     setLoading(true);
     setError('');
+    setSearchedQuery(query.trim());
 
     try {
-      const data = await searchMovies(query, searchPage);
+      const data = await searchMovies(query.trim(), searchPage);
 
       setMovies(data.results || []);
       setPage(data.page || searchPage);
@@ -166,13 +170,13 @@ export default function Search() {
 
         {!loading &&
           !error &&
-          query &&
+          searchedQuery &&
           movies.length === 0 && (
 
             <div className="text-center py-5">
               <div className="mb-3" style={{ fontSize: '3rem', opacity: 0.8 }}>🎬</div>
               <h4 className="text-white fw-bold">
-                No movies found for "{query}"
+                No movies found for "{searchedQuery}"
               </h4>
               <p style={{ color: 'var(--text-muted)', maxWidth: '420px', margin: '0 auto' }}>
                 We couldn't find any titles matching your search. Try checking your spelling or search by actor or popular keyword.
